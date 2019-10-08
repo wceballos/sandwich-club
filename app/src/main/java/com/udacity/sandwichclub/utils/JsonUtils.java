@@ -21,7 +21,7 @@ public class JsonUtils {
         String placeOfOrigin;
         String description;
         String image;
-        List<String> ingredients = new ArrayList<>();;
+        List<String> ingredients = new ArrayList<>();
 
         JSONObject sandwichJson = new JSONObject(json);
 
@@ -40,10 +40,9 @@ public class JsonUtils {
         image = sandwichJson.getString("image");
 
         JSONArray ingredientsArray = sandwichJson.getJSONArray("ingredients");
-        for(int i = 0; i < alsoKnownAsArray.length(); i++) {
+        for(int i = 0; i < ingredientsArray.length(); i++) {
             ingredients.add(ingredientsArray.getString(i));
         }
-
         sandwich = new Sandwich(mainName, alsoKnownAs, placeOfOrigin, description, image, ingredients);
 
         return sandwich;
