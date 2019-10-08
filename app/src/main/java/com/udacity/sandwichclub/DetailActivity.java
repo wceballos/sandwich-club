@@ -77,20 +77,19 @@ public class DetailActivity extends AppCompatActivity {
         List<String> alsoKnownAsList = mSandwich.getAlsoKnownAs();
         List<String> ingredientsList = mSandwich.getIngredients();
 
-        alsoKnownAs.append("\n");
         for(String otherName : alsoKnownAsList) {
             alsoKnownAs.append(otherName);
-            if(otherName != alsoKnownAsList.get(alsoKnownAsList.size()-1))
+            if(!otherName.equals(alsoKnownAsList.get(alsoKnownAsList.size()-1)))
                 alsoKnownAs.append(", ");
         }
-        alsoKnownAs.append("\n");
 
         for(String ingredient : ingredientsList) {
-            ingredients.append("\n\u2022\t" + ingredient);
+            ingredients.append("\u2022\t" + ingredient);
+            if(!ingredient.equals(ingredientsList.get(ingredientsList.size()-1)))
+                ingredients.append("\n");
         }
-        ingredients.append("\n");
 
-        origin.append("\n" + mSandwich.getPlaceOfOrigin() +"\n");
-        description.append("\n" + mSandwich.getDescription() +"\n");
+        origin.append(mSandwich.getPlaceOfOrigin());
+        description.append(mSandwich.getDescription());
     }
 }
